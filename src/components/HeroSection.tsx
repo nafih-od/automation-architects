@@ -38,12 +38,12 @@ const HeroSection = () => {
           >
             <div className="h-px w-16 bg-primary" />
             <span className="text-sm font-mono-tech text-primary tracking-widest uppercase">
-              Systems Engineer
+              AI Systems Engineer
             </span>
           </motion.div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] mb-8 tracking-tight">
-            I Engineer Automation{" "}
+            I Engineer AI-Powered{" "}
             <br className="hidden sm:block" />
             Infrastructure for{" "}
             <span className="text-gradient">Scaling Companies</span>
