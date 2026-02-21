@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Github, Linkedin, MessageCircle } from "lucide-react";
 import { useState } from "react";
+
+const socialLinks = [
+  { href: "https://wa.me/917594867061", label: "WhatsApp", icon: MessageCircle },
+  { href: "https://linkedin.com/in/nafihrahman", label: "LinkedIn", icon: Linkedin },
+  { href: "https://github.com/nafihrahman", label: "GitHub", icon: Github },
+];
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
@@ -49,6 +55,21 @@ const ContactSection = () => {
                   <span className="text-muted-foreground">{item.label}:</span>
                   <span className="text-foreground font-medium">{item.value}</span>
                 </div>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-4 mt-8">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.label}
+                  className="w-10 h-10 rounded-md border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/60 transition-colors"
+                >
+                  <link.icon size={18} />
+                </a>
               ))}
             </div>
           </motion.div>
