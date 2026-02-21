@@ -5,6 +5,7 @@ const trustIndicators = [
   "ERP & CRM automation systems",
   "Multi-store inventory platforms (50+ users)",
   "Shopify & API integrations",
+  "MCP integrations & AI agent tooling",
   "VPS-based backend deployments",
 ];
 
