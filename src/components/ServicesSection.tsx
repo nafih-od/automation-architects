@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Cog, Code2, Database, ShoppingBag, MessageSquare, Server } from "lucide-react";
+import { Cog, Code2, Database, ShoppingBag, MessageSquare, Server, Plug } from "lucide-react";
 
 const services = [
   {
@@ -43,6 +43,13 @@ const services = [
     problem: "Unreliable hosting and poor architecture block growth.",
     solution: "Linux VPS setup, API design, event-driven systems, performance optimization, and secure deployment pipelines.",
     outcome: "Stable, scalable backend foundation.",
+  },
+  {
+    icon: Plug,
+    title: "MCP Integrations & AI Tooling",
+    problem: "AI agents lack real-time context from business tools and data sources.",
+    solution: "Model Context Protocol integrations connecting AI agents to Notion, Linear, Jira, Slack, databases, and custom APIs — enabling context-aware automation workflows.",
+    outcome: "AI systems that act on real business data, not prompts.",
   },
 ];
 

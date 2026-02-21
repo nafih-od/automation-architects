@@ -22,6 +22,11 @@ const categories = [
     items: ["Shopify API", "Meta WhatsApp Cloud API", "Payment Gateways", "Custom Webhooks"],
   },
   {
+    label: "AI & MCP",
+    capability: "AI agents and context protocol",
+    items: ["MCP Integrations", "AI Logic Systems", "Agent Tooling", "Context Pipelines"],
+  },
+  {
     label: "Infrastructure",
     capability: "Production deployment and reliability",
     items: ["Linux VPS", "Server Security", "Performance Monitoring", "CI/CD Pipelines"],
@@ -55,7 +60,7 @@ const TechStackSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-px bg-border rounded-lg overflow-hidden">
+        <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-px bg-border rounded-lg overflow-hidden">
           {categories.map((cat, i) => (
             <motion.div
               key={cat.label}
