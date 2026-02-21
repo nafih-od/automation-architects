@@ -2,7 +2,7 @@ import { Github, Linkedin, MessageCircle } from "lucide-react";
 
 const socialLinks = [
   { href: "https://wa.me/917594867061", label: "WhatsApp", icon: MessageCircle },
-  { href: "https://linkedin.com/in/nafihrahman", label: "LinkedIn", icon: Linkedin },
+  { href: "https://www.linkedin.com/in/nafihrahman/", label: "LinkedIn", icon: Linkedin },
   { href: "https://github.com/nafihrahman", label: "GitHub", icon: Github },
 ];
 
