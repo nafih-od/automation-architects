@@ -1,62 +1,62 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 const caseStudies = [
   {
     id: 1,
     tag: "ERP + eCommerce",
-    title: "AI-Enhanced ERP with Shopify Integration",
-    challenge: "A growing retail brand managed inventory across Shopify and manual spreadsheets, leading to overselling, delayed fulfillment, and inaccurate GST reporting.",
-    architecture: "Built a custom ERP system that syncs bidirectionally with Shopify via REST API. Integrated AI-based demand forecasting to auto-adjust reorder points. GST calculation engine handles multi-state tax logic automatically.",
+    title: "AI-Enhanced ERP with Shopify Sync System",
+    challenge: "A growing retail brand managed inventory across Shopify and manual spreadsheets, leading to chronic overselling, delayed fulfillment, and inaccurate GST reporting across multiple states.",
+    architecture: "Designed a custom ERP that syncs bidirectionally with Shopify via REST API. Integrated AI-based demand forecasting to auto-adjust reorder points. Built a GST calculation engine handling multi-state tax logic with automated compliance reports.",
     stack: ["React", "Node.js", "MySQL", "Shopify API", "Python ML"],
-    integrations: "Shopify webhooks → ERP sync → Inventory engine → AI forecast module → Dashboard",
+    dataFlow: "Shopify Webhooks → ERP Sync Engine → Inventory State Machine → AI Forecast Module → Admin Dashboard → GST Report Generator",
     impact: [
       "92% reduction in manual inventory updates",
       "Zero overselling incidents post-deployment",
-      "GST reporting time reduced from 2 days to 15 minutes",
+      "GST reporting reduced from 2 days to 15 minutes",
     ],
   },
   {
     id: 2,
-    tag: "Messaging Automation",
-    title: "WhatsApp CRM Automation for International Client",
-    challenge: "An international service provider handled 500+ daily WhatsApp inquiries manually, with no CRM integration and zero lead qualification.",
-    architecture: "Deployed Meta WhatsApp Cloud API with custom conversation flow engine. AI-powered intent classification routes leads to appropriate workflows. CRM auto-updates with conversation summaries and lead scores.",
-    stack: ["Node.js", "Meta Cloud API", "MySQL", "Python NLP"],
-    integrations: "WhatsApp → Intent Classifier → CRM Pipeline → Auto-Response Engine → Analytics",
+    tag: "WhatsApp CRM",
+    title: "WhatsApp CRM Automation for Import/Export Company",
+    challenge: "An international import/export company handled 500+ daily WhatsApp inquiries manually across multiple agents, with no CRM integration, no lead scoring, and zero automation.",
+    architecture: "Deployed Meta WhatsApp Cloud API with a custom conversation flow engine. AI-powered intent classification routes leads to appropriate qualification workflows. CRM auto-updates with conversation summaries, lead scores, and follow-up scheduling.",
+    stack: ["Node.js", "Meta Cloud API", "MySQL", "Python NLP", "REST APIs"],
+    dataFlow: "WhatsApp Incoming → NLP Intent Classifier → Lead Scoring Engine → CRM Pipeline Update → Auto-Response Router → Agent Dashboard",
     impact: [
-      "85% of inquiries handled without human intervention",
+      "85% of inquiries resolved without human intervention",
       "Lead qualification accuracy improved by 3x",
-      "Response time reduced from hours to under 30 seconds",
+      "Average response time under 30 seconds",
     ],
   },
   {
     id: 3,
-    tag: "Multi-Store System",
-    title: "Multi-Store Inventory Trading System",
-    challenge: "A trading network of 50+ stores managed inter-store transfers and pricing through phone calls and paper records, causing massive discrepancies.",
-    architecture: "Custom multi-tenant platform with role-based access per store. Real-time inventory sync across locations with conflict resolution. Automated pricing engine with margin calculations and approval workflows.",
+    tag: "Multi-Store Platform",
+    title: "Multi-Store Inventory Trading Platform (50+ Users)",
+    challenge: "A trading network of 50+ stores managed inter-store transfers and dynamic pricing through phone calls and paper records, causing massive inventory discrepancies and margin losses.",
+    architecture: "Built a multi-tenant platform with granular role-based access per store. Real-time inventory synchronization across all locations with conflict resolution algorithms. Automated pricing engine with margin calculations and multi-level approval workflows.",
     stack: ["React", "Node.js", "MySQL", "REST APIs", "Linux VPS"],
-    integrations: "Store Terminals → Central API → Inventory Engine → Pricing Module → Reports",
+    dataFlow: "Store Terminals → Central API Gateway → Inventory Sync Engine → Pricing Calculator → Approval Workflow → Reporting Module",
     impact: [
-      "50+ stores connected on a single platform",
+      "50+ stores connected on a unified platform",
       "Inventory discrepancies reduced by 97%",
-      "Inter-store transfer time cut from days to minutes",
+      "Transfer processing from days to under 5 minutes",
     ],
   },
   {
     id: 4,
-    tag: "AI Web Application",
-    title: "Custom AI-Based Web Application",
-    challenge: "A consultancy firm needed a client-facing platform that could analyze uploaded documents, extract key insights, and generate structured reports — replacing a team of 3 analysts.",
-    architecture: "Built a secure web application with document upload, AI-powered extraction pipeline, and dynamic report generation. Role-based access ensures data isolation between clients.",
+    tag: "AI Web App",
+    title: "Custom Automation-Driven Web Application",
+    challenge: "A consultancy firm needed a client-facing platform to analyze uploaded documents, extract key insights, and generate structured reports — replacing a team of 3 full-time analysts.",
+    architecture: "Engineered a secure web application with document upload pipeline, AI-powered text extraction and analysis engine, and dynamic report templating system. Role-based access ensures complete data isolation between client accounts.",
     stack: ["React", "Python", "Node.js", "MySQL", "AI/ML APIs"],
-    integrations: "Upload Module → Document Parser → AI Analysis Engine → Report Generator → Client Portal",
+    dataFlow: "Document Upload → Parser & OCR → AI Extraction Engine → Structured Data Store → Report Template Engine → Client Portal",
     impact: [
-      "Report generation time reduced from 4 hours to 12 minutes",
+      "Report generation from 4 hours to 12 minutes",
       "Operational cost reduced by 60%",
-      "Client satisfaction score improved to 96%",
+      "Client satisfaction score of 96%",
     ],
   },
 ];
@@ -66,38 +66,40 @@ const CaseStudiesSection = () => {
   const active = caseStudies[activeCase];
 
   return (
-    <section id="cases" className="py-24 md:py-32 bg-secondary/30">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="cases" className="py-28 md:py-36 relative">
+      <div className="absolute inset-0 bg-muted/20" />
+      
+      <div className="relative max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-20"
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-12 bg-primary" />
-            <span className="text-sm font-mono-tech text-primary tracking-wider uppercase">
+            <div className="h-px w-16 bg-primary" />
+            <span className="text-sm font-mono-tech text-primary tracking-widest uppercase">
               Case Studies
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold mb-5">
             Systems in Production
           </h2>
-          <p className="text-muted-foreground max-w-xl">
-            Real systems solving real business problems. Architecture decisions, technical details, and measurable outcomes.
+          <p className="text-muted-foreground max-w-xl text-base">
+            Architecture decisions, technical depth, and measurable business outcomes from real deployments.
           </p>
         </motion.div>
 
         {/* Tabs */}
-        <div className="flex flex-wrap gap-2 mb-10">
+        <div className="flex flex-wrap gap-2 mb-12">
           {caseStudies.map((cs, i) => (
             <button
               key={cs.id}
               onClick={() => setActiveCase(i)}
-              className={`text-sm px-4 py-2 rounded-md border transition-all duration-200 ${
+              className={`text-sm px-5 py-2.5 rounded-md border transition-all duration-300 ${
                 activeCase === i
-                  ? "bg-primary text-primary-foreground border-primary"
+                  ? "bg-primary text-primary-foreground border-primary glow"
                   : "text-muted-foreground border-border hover:border-primary/40 hover:text-foreground"
               }`}
             >
@@ -106,63 +108,97 @@ const CaseStudiesSection = () => {
           ))}
         </div>
 
-        {/* Active case */}
+        {/* Active case study */}
         <motion.div
           key={active.id}
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="card-elevated border border-border rounded-lg p-8 md:p-10"
+          className="card-elevated border border-border rounded-xl overflow-hidden"
         >
-          <h3 className="text-2xl font-bold mb-6">{active.title}</h3>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div>
-              <h4 className="text-sm font-mono-tech text-primary tracking-wider uppercase mb-2">
-                Business Challenge
-              </h4>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {active.challenge}
-              </p>
+          {/* Header */}
+          <div className="p-8 md:p-10 border-b border-border">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-xs font-mono-tech text-primary tracking-widest uppercase">{active.tag}</span>
             </div>
-            <div>
-              <h4 className="text-sm font-mono-tech text-primary tracking-wider uppercase mb-2">
-                Technical Architecture
-              </h4>
-              <p className="text-secondary-foreground text-sm leading-relaxed">
-                {active.architecture}
-              </p>
-            </div>
+            <h3 className="text-2xl md:text-3xl font-bold">{active.title}</h3>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div>
-              <h4 className="text-xs font-mono-tech text-muted-foreground tracking-wider uppercase mb-3">Stack</h4>
-              <div className="flex flex-wrap gap-2">
-                {active.stack.map((s) => (
-                  <span key={s} className="text-xs border border-border text-foreground px-2.5 py-1 rounded">
-                    {s}
-                  </span>
+          {/* Body */}
+          <div className="p-8 md:p-10">
+            <div className="grid md:grid-cols-2 gap-10 mb-10">
+              <div>
+                <h4 className="text-xs font-mono-tech text-muted-foreground tracking-widest uppercase mb-3">
+                  Business Challenge
+                </h4>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {active.challenge}
+                </p>
+              </div>
+              <div>
+                <h4 className="text-xs font-mono-tech text-muted-foreground tracking-widest uppercase mb-3">
+                  System Architecture
+                </h4>
+                <p className="text-secondary-foreground text-sm leading-relaxed">
+                  {active.architecture}
+                </p>
+              </div>
+            </div>
+
+            {/* Data flow diagram */}
+            <div className="mb-10 p-5 rounded-lg bg-background border border-border">
+              <h4 className="text-xs font-mono-tech text-muted-foreground tracking-widest uppercase mb-3">
+                Data Flow
+              </h4>
+              <p className="text-xs font-mono-tech text-primary leading-loose">
+                {active.dataFlow}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-10">
+              <div>
+                <h4 className="text-xs font-mono-tech text-muted-foreground tracking-widest uppercase mb-3">Stack</h4>
+                <div className="flex flex-wrap gap-2">
+                  {active.stack.map((s) => (
+                    <span key={s} className="text-xs border border-border text-foreground px-3 py-1.5 rounded-md bg-background">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Impact */}
+            <div className="border-t border-border pt-8">
+              <h4 className="text-xs font-mono-tech text-muted-foreground tracking-widest uppercase mb-5">
+                Measurable Impact
+              </h4>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {active.impact.map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 p-4 rounded-lg bg-primary/5 border border-primary/10">
+                    <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
+                    <span className="text-sm text-foreground font-medium">{item}</span>
+                  </div>
                 ))}
               </div>
             </div>
-            <div className="md:col-span-2">
-              <h4 className="text-xs font-mono-tech text-muted-foreground tracking-wider uppercase mb-3">Integration Flow</h4>
-              <p className="text-xs font-mono-tech text-primary/80">{active.integrations}</p>
-            </div>
           </div>
+        </motion.div>
 
-          <div className="border-t border-border pt-6">
-            <h4 className="text-xs font-mono-tech text-muted-foreground tracking-wider uppercase mb-4">Measurable Impact</h4>
-            <div className="grid sm:grid-cols-3 gap-4">
-              {active.impact.map((item, i) => (
-                <div key={i} className="flex items-start gap-2">
-                  <ExternalLink size={14} className="text-primary mt-0.5 shrink-0" />
-                  <span className="text-sm text-foreground">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* CTA below case studies */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center"
+        >
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 text-sm text-primary hover:underline underline-offset-4 transition-all"
+          >
+            Discuss a similar system
+            <ArrowRight size={14} />
+          </a>
         </motion.div>
       </div>
     </section>
