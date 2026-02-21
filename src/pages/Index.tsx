@@ -9,7 +9,7 @@ import ClosingSection from "@/components/ClosingSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import VoiceAgent from "@/components/VoiceAgent";
+import ChatBot from "@/components/ChatBot";
 
 const Index = () => {
   return (
@@ -25,7 +25,7 @@ const Index = () => {
       <ContactSection />
       <Footer />
       <WhatsAppButton />
-      <VoiceAgent />
+      <ChatBot />
     </div>
   );
 };
