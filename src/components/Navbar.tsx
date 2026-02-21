@@ -45,6 +45,13 @@ const Navbar = () => {
             </a>
           ))}
           <a
+            href="/resume.pdf"
+            download
+            className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+          >
+            Resume
+          </a>
+          <a
             href="#contact"
             className="text-sm font-medium bg-primary text-primary-foreground px-5 py-2 rounded-md hover:opacity-90 transition-opacity"
           >
@@ -80,6 +87,14 @@ const Navbar = () => {
                   {item.label}
                 </a>
               ))}
+              <a
+                href="/resume.pdf"
+                download
+                onClick={() => setOpen(false)}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                Resume
+              </a>
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
