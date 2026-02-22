@@ -10,7 +10,7 @@ const features = [
 
 const InternationalSection = () => {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-24 md:py-32 bg-secondary/50">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,11 +21,9 @@ const InternationalSection = () => {
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-primary" />
-            <span className="text-sm font-mono-tech text-primary tracking-wider uppercase">
-              Global
-            </span>
+            <span className="text-sm font-mono-tech text-primary tracking-wider uppercase">Global</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             Available for International Projects
           </h2>
           <p className="text-muted-foreground max-w-xl">
@@ -33,7 +31,7 @@ const InternationalSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {features.map((f, i) => (
             <motion.div
               key={f.title}
@@ -41,10 +39,10 @@ const InternationalSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="card-elevated border border-border rounded-lg p-5"
+              className="bg-card border border-border rounded-lg p-5 hover:shadow-sm transition-shadow"
             >
               <f.icon className="text-primary mb-3" size={20} />
-              <h3 className="text-sm font-semibold mb-2">{f.title}</h3>
+              <h3 className="text-sm font-semibold mb-2 text-foreground">{f.title}</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">{f.desc}</p>
             </motion.div>
           ))}
