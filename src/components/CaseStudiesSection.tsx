@@ -66,10 +66,8 @@ const CaseStudiesSection = () => {
   const active = caseStudies[activeCase];
 
   return (
-    <section id="cases" className="py-28 md:py-36 relative">
-      <div className="absolute inset-0 bg-muted/20" />
-      
-      <div className="relative max-w-7xl mx-auto px-6">
+    <section id="cases" className="py-28 md:py-36 bg-background">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +81,7 @@ const CaseStudiesSection = () => {
               Case Studies
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-5">
+          <h2 className="text-3xl md:text-5xl font-bold mb-5 text-foreground">
             Systems in Production
           </h2>
           <p className="text-muted-foreground max-w-xl text-base">
@@ -91,7 +89,6 @@ const CaseStudiesSection = () => {
           </p>
         </motion.div>
 
-        {/* Tabs */}
         <div className="flex flex-wrap gap-2 mb-12">
           {caseStudies.map((cs, i) => (
             <button
@@ -99,8 +96,8 @@ const CaseStudiesSection = () => {
               onClick={() => setActiveCase(i)}
               className={`text-sm px-5 py-2.5 rounded-md border transition-all duration-300 ${
                 activeCase === i
-                  ? "bg-primary text-primary-foreground border-primary glow"
-                  : "text-muted-foreground border-border hover:border-primary/40 hover:text-foreground"
+                  ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                  : "text-muted-foreground border-border hover:border-primary/40 hover:text-foreground bg-card"
               }`}
             >
               {cs.tag}
@@ -108,51 +105,41 @@ const CaseStudiesSection = () => {
           ))}
         </div>
 
-        {/* Active case study */}
         <motion.div
           key={active.id}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="card-elevated border border-border rounded-xl overflow-hidden"
+          className="bg-card border border-border rounded-xl overflow-hidden shadow-sm"
         >
-          {/* Header */}
           <div className="p-8 md:p-10 border-b border-border">
             <div className="flex items-center gap-2 mb-3">
               <span className="text-xs font-mono-tech text-primary tracking-widest uppercase">{active.tag}</span>
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold">{active.title}</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground">{active.title}</h3>
           </div>
 
-          {/* Body */}
           <div className="p-8 md:p-10">
             <div className="grid md:grid-cols-2 gap-10 mb-10">
               <div>
                 <h4 className="text-xs font-mono-tech text-muted-foreground tracking-widest uppercase mb-3">
                   Business Challenge
                 </h4>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {active.challenge}
-                </p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{active.challenge}</p>
               </div>
               <div>
                 <h4 className="text-xs font-mono-tech text-muted-foreground tracking-widest uppercase mb-3">
                   System Architecture
                 </h4>
-                <p className="text-secondary-foreground text-sm leading-relaxed">
-                  {active.architecture}
-                </p>
+                <p className="text-foreground/80 text-sm leading-relaxed">{active.architecture}</p>
               </div>
             </div>
 
-            {/* Data flow diagram */}
-            <div className="mb-10 p-5 rounded-lg bg-background border border-border">
+            <div className="mb-10 p-5 rounded-lg bg-secondary border border-border">
               <h4 className="text-xs font-mono-tech text-muted-foreground tracking-widest uppercase mb-3">
                 Data Flow
               </h4>
-              <p className="text-xs font-mono-tech text-primary leading-loose">
-                {active.dataFlow}
-              </p>
+              <p className="text-xs font-mono-tech text-primary leading-loose">{active.dataFlow}</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-10">
@@ -160,7 +147,7 @@ const CaseStudiesSection = () => {
                 <h4 className="text-xs font-mono-tech text-muted-foreground tracking-widest uppercase mb-3">Stack</h4>
                 <div className="flex flex-wrap gap-2">
                   {active.stack.map((s) => (
-                    <span key={s} className="text-xs border border-border text-foreground px-3 py-1.5 rounded-md bg-background">
+                    <span key={s} className="text-xs border border-border text-foreground px-3 py-1.5 rounded-md bg-secondary">
                       {s}
                     </span>
                   ))}
@@ -168,7 +155,6 @@ const CaseStudiesSection = () => {
               </div>
             </div>
 
-            {/* Impact */}
             <div className="border-t border-border pt-8">
               <h4 className="text-xs font-mono-tech text-muted-foreground tracking-widest uppercase mb-5">
                 Measurable Impact
@@ -185,7 +171,6 @@ const CaseStudiesSection = () => {
           </div>
         </motion.div>
 
-        {/* CTA below case studies */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

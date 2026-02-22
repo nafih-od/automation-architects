@@ -11,18 +11,7 @@ const trustIndicators = [
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Grid pattern */}
-      <div className="absolute inset-0 opacity-[0.025]" style={{
-        backgroundImage: "linear-gradient(hsl(170 75% 42% / 0.4) 1px, transparent 1px), linear-gradient(90deg, hsl(170 75% 42% / 0.4) 1px, transparent 1px)",
-        backgroundSize: "80px 80px",
-      }} />
-
-      {/* Primary orb */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-[0.06] blur-[150px] bg-primary" />
-      {/* Secondary orb */}
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full opacity-[0.04] blur-[100px] bg-primary" />
-
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
       <div className="relative max-w-7xl mx-auto px-6 pt-32 pb-24 w-full">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -42,7 +31,7 @@ const HeroSection = () => {
             </span>
           </motion.div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] mb-8 tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-8 tracking-tight text-foreground">
             I Engineer AI-Powered{" "}
             <br className="hidden sm:block" />
             Infrastructure for{" "}
@@ -54,7 +43,6 @@ const HeroSection = () => {
             Scalable backend systems designed to eliminate operational bottlenecks.
           </p>
 
-          {/* Trust indicators */}
           <div className="grid grid-cols-2 gap-x-6 gap-y-2 mb-12 max-w-lg">
             {trustIndicators.map((item) => (
               <div key={item} className="flex items-center gap-2">
@@ -67,14 +55,14 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-md font-medium text-sm hover:opacity-90 transition-opacity glow"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-md font-medium text-sm hover:bg-primary/90 transition-colors shadow-md"
             >
               Book a Strategy Call
               <ArrowRight size={16} />
             </a>
             <a
               href="#cases"
-              className="inline-flex items-center justify-center gap-2 border border-border text-foreground px-8 py-4 rounded-md font-medium text-sm hover:border-primary/50 hover:text-primary transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2 border border-border text-foreground px-8 py-4 rounded-md font-medium text-sm hover:bg-secondary transition-colors"
             >
               View Case Studies
             </a>

@@ -12,10 +12,8 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section id="process" className="py-28 md:py-36 relative">
-      <div className="absolute inset-0 bg-muted/20" />
-      
-      <div className="relative max-w-7xl mx-auto px-6">
+    <section id="process" className="py-28 md:py-36 bg-background">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -25,19 +23,15 @@ const ProcessSection = () => {
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-16 bg-primary" />
-            <span className="text-sm font-mono-tech text-primary tracking-widest uppercase">
-              Process
-            </span>
+            <span className="text-sm font-mono-tech text-primary tracking-widest uppercase">Process</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-5">
-            How I Work
-          </h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-5 text-foreground">How I Work</h2>
           <p className="text-muted-foreground max-w-xl text-base">
             A structured, repeatable engineering process that turns business requirements into production-grade systems.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-7 gap-px bg-border rounded-lg overflow-hidden">
+        <div className="grid md:grid-cols-7 gap-4">
           {steps.map((step, i) => (
             <motion.div
               key={step.num}
@@ -45,10 +39,10 @@ const ProcessSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06, duration: 0.5 }}
-              className="bg-card p-5 flex flex-col"
+              className="bg-card border border-border rounded-lg p-5 flex flex-col"
             >
-              <span className="text-2xl font-bold text-primary/20 mb-3 font-mono-tech">{step.num}</span>
-              <h3 className="text-sm font-semibold mb-2 leading-tight">{step.title}</h3>
+              <span className="text-2xl font-bold text-primary/30 mb-3 font-mono-tech">{step.num}</span>
+              <h3 className="text-sm font-semibold mb-2 leading-tight text-foreground">{step.title}</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
             </motion.div>
           ))}

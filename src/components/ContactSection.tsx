@@ -18,10 +18,8 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-28 md:py-36 relative">
-      <div className="absolute inset-0 bg-muted/20" />
-      
-      <div className="relative max-w-7xl mx-auto px-6">
+    <section id="contact" className="py-28 md:py-36 bg-secondary/50">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -31,11 +29,9 @@ const ContactSection = () => {
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-16 bg-primary" />
-              <span className="text-sm font-mono-tech text-primary tracking-widest uppercase">
-                Contact
-              </span>
+              <span className="text-sm font-mono-tech text-primary tracking-widest uppercase">Contact</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-foreground">
               Let's Discuss{" "}
               <span className="text-gradient">Your System</span>
             </h2>
@@ -84,64 +80,49 @@ const ContactSection = () => {
           >
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="text-[10px] font-mono-tech text-muted-foreground tracking-widest uppercase mb-2 block">
-                  Name
-                </label>
+                <label className="text-[10px] font-mono-tech text-muted-foreground tracking-widest uppercase mb-2 block">Name</label>
                 <input
-                  type="text"
-                  required
-                  maxLength={100}
+                  type="text" required maxLength={100}
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full bg-background border border-border rounded-md px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/60 transition-colors"
+                  className="w-full bg-card border border-border rounded-md px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/60 transition-colors"
                   placeholder="Your name"
                 />
               </div>
               <div>
-                <label className="text-[10px] font-mono-tech text-muted-foreground tracking-widest uppercase mb-2 block">
-                  Company
-                </label>
+                <label className="text-[10px] font-mono-tech text-muted-foreground tracking-widest uppercase mb-2 block">Company</label>
                 <input
-                  type="text"
-                  maxLength={100}
+                  type="text" maxLength={100}
                   value={form.company}
                   onChange={(e) => setForm({ ...form, company: e.target.value })}
-                  className="w-full bg-background border border-border rounded-md px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/60 transition-colors"
+                  className="w-full bg-card border border-border rounded-md px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/60 transition-colors"
                   placeholder="Company name"
                 />
               </div>
             </div>
             <div>
-              <label className="text-[10px] font-mono-tech text-muted-foreground tracking-widest uppercase mb-2 block">
-                Email
-              </label>
+              <label className="text-[10px] font-mono-tech text-muted-foreground tracking-widest uppercase mb-2 block">Email</label>
               <input
-                type="email"
-                required
-                maxLength={255}
+                type="email" required maxLength={255}
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full bg-background border border-border rounded-md px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/60 transition-colors"
+                className="w-full bg-card border border-border rounded-md px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/60 transition-colors"
                 placeholder="you@company.com"
               />
             </div>
             <div>
-              <label className="text-[10px] font-mono-tech text-muted-foreground tracking-widest uppercase mb-2 block">
-                Project Details
-              </label>
+              <label className="text-[10px] font-mono-tech text-muted-foreground tracking-widest uppercase mb-2 block">Project Details</label>
               <textarea
-                required
-                maxLength={1000}
-                rows={5}
+                required maxLength={1000} rows={5}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full bg-background border border-border rounded-md px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/60 transition-colors resize-none"
+                className="w-full bg-card border border-border rounded-md px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/60 transition-colors resize-none"
                 placeholder="Describe your business challenge, current systems, and what you're looking to build..."
               />
             </div>
             <button
               type="submit"
-              className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-md font-medium text-sm hover:opacity-90 transition-opacity glow"
+              className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-md font-medium text-sm hover:bg-primary/90 transition-colors shadow-md"
             >
               Book a Strategy Call
               <ArrowRight size={16} />

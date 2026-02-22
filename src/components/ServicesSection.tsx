@@ -78,10 +78,7 @@ const cardVariants = {
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-28 md:py-36 relative">
-      {/* Subtle accent line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-border" />
-      
+    <section id="services" className="py-28 md:py-36 bg-secondary/50">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -96,7 +93,7 @@ const ServicesSection = () => {
               Services
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-5">
+          <h2 className="text-3xl md:text-5xl font-bold mb-5 text-foreground">
             Systems I Engineer
           </h2>
           <p className="text-muted-foreground max-w-xl text-base">
@@ -104,7 +101,7 @@ const ServicesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-lg overflow-hidden">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -113,33 +110,26 @@ const ServicesSection = () => {
               whileInView="visible"
               viewport={{ once: true }}
               variants={cardVariants}
-              className="group bg-card p-8 hover:bg-muted/30 transition-colors duration-500 relative"
+              className="group bg-card border border-border rounded-lg p-8 hover:shadow-md hover:border-primary/20 transition-all duration-300"
             >
-              {/* Hover glow */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{
-                background: "radial-gradient(300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), hsl(170 75% 42% / 0.04), transparent 60%)"
-              }} />
-              
-              <div className="relative">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center">
-                    <service.icon className="text-primary" size={18} />
-                  </div>
-                  <h3 className="text-base font-semibold">{service.title}</h3>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <service.icon className="text-primary" size={18} />
                 </div>
+                <h3 className="text-base font-semibold text-foreground">{service.title}</h3>
+              </div>
 
-                <div className="space-y-4 text-sm">
-                  <div>
-                    <span className="text-muted-foreground font-mono-tech text-[10px] uppercase tracking-widest">Problem</span>
-                    <p className="text-muted-foreground mt-1 leading-relaxed">{service.problem}</p>
-                  </div>
-                  <div>
-                    <span className="text-primary font-mono-tech text-[10px] uppercase tracking-widest">Solution</span>
-                    <p className="text-secondary-foreground mt-1 leading-relaxed">{service.solution}</p>
-                  </div>
-                  <div className="pt-3 border-t border-border">
-                    <p className="text-primary font-medium text-xs tracking-wide">{service.outcome}</p>
-                  </div>
+              <div className="space-y-4 text-sm">
+                <div>
+                  <span className="text-muted-foreground font-mono-tech text-[10px] uppercase tracking-widest">Problem</span>
+                  <p className="text-muted-foreground mt-1 leading-relaxed">{service.problem}</p>
+                </div>
+                <div>
+                  <span className="text-primary font-mono-tech text-[10px] uppercase tracking-widest">Solution</span>
+                  <p className="text-foreground/80 mt-1 leading-relaxed">{service.solution}</p>
+                </div>
+                <div className="pt-3 border-t border-border">
+                  <p className="text-primary font-medium text-xs tracking-wide">{service.outcome}</p>
                 </div>
               </div>
             </motion.div>

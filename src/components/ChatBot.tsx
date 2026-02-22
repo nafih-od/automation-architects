@@ -95,7 +95,7 @@ const ChatBot = () => {
     <>
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         aria-label="Chat with AI"
@@ -110,50 +110,39 @@ const ChatBot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 rounded-xl border border-border bg-card shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 rounded-xl border border-border bg-card shadow-xl flex flex-col overflow-hidden"
             style={{ maxHeight: "70vh" }}
           >
-            {/* Header */}
             <div className="px-5 py-4 border-b border-border">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 <span className="text-sm font-semibold text-foreground">AI Assistant</span>
               </div>
-              <p className="text-xs text-muted-foreground mt-1">
-                Ask me about our services & capabilities
-              </p>
+              <p className="text-xs text-muted-foreground mt-1">Ask me about our services & capabilities</p>
             </div>
 
-            {/* Messages */}
             <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-3 min-h-[200px]">
               {messages.length === 0 && (
-                <p className="text-xs text-muted-foreground text-center mt-8">
-                  Send a message to start chatting
-                </p>
+                <p className="text-xs text-muted-foreground text-center mt-8">Send a message to start chatting</p>
               )}
               {messages.map((m, i) => (
                 <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
-                  <div
-                    className={`max-w-[80%] rounded-lg px-3 py-2 text-sm whitespace-pre-wrap ${
-                      m.role === "user"
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-muted/30 text-foreground"
-                    }`}
-                  >
+                  <div className={`max-w-[80%] rounded-lg px-3 py-2 text-sm whitespace-pre-wrap ${
+                    m.role === "user" ? "bg-primary text-primary-foreground" : "bg-secondary text-foreground"
+                  }`}>
                     {m.content}
                   </div>
                 </div>
               ))}
               {isLoading && messages[messages.length - 1]?.role !== "assistant" && (
                 <div className="flex justify-start">
-                  <div className="bg-muted/30 rounded-lg px-3 py-2">
+                  <div className="bg-secondary rounded-lg px-3 py-2">
                     <Loader2 className="w-4 h-4 animate-spin text-muted-foreground" />
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Input */}
             <div className="border-t border-border p-3 flex gap-2">
               <input
                 value={input}
@@ -165,7 +154,7 @@ const ChatBot = () => {
               <button
                 onClick={send}
                 disabled={isLoading || !input.trim()}
-                className="bg-primary text-primary-foreground p-2 rounded-md hover:opacity-90 transition-opacity disabled:opacity-50"
+                className="bg-primary text-primary-foreground p-2 rounded-md hover:bg-primary/90 transition-colors disabled:opacity-50"
               >
                 <Send size={16} />
               </button>
