@@ -13,7 +13,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:nafih76@gmail.com?subject=Strategy Call — ${encodeURIComponent(form.name)} (${encodeURIComponent(form.company)})&body=${encodeURIComponent(form.message)}`;
+    const mailtoLink = `mailto:nafih176@gmail.com?subject=Strategy Call — ${encodeURIComponent(form.name)} (${encodeURIComponent(form.company)})&body=${encodeURIComponent(form.message)}`;
     window.open(mailtoLink, "_blank");
   };
 
