@@ -51,6 +51,13 @@ const services = [
     solution: "Model Context Protocol integrations connecting AI agents to Notion, Linear, Jira, Slack, databases, and custom APIs — enabling context-aware automation workflows.",
     outcome: "AI systems that act on real business data, not prompts.",
   },
+  {
+    icon: Code2,
+    title: "Website Development",
+    problem: "Businesses need professional online presence — static or dynamic.",
+    solution: "Static marketing sites, dynamic web applications, and Shopify store development with responsive design, SEO optimization, and performance-first architecture.",
+    outcome: "Fast, modern websites that convert visitors.",
+  },
 ];
 
 const cardVariants = {
