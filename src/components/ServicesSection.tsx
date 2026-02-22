@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Cog, Code2, Database, ShoppingBag, MessageSquare, Server, Plug } from "lucide-react";
+import { Cog, Code2, Database, ShoppingBag, MessageSquare, Server, Plug, BarChart3 } from "lucide-react";
 
 const services = [
   {
@@ -57,6 +57,13 @@ const services = [
     problem: "Businesses need professional online presence — static or dynamic.",
     solution: "Static marketing sites, dynamic web applications, and Shopify store development with responsive design, SEO optimization, and performance-first architecture.",
     outcome: "Fast, modern websites that convert visitors.",
+  },
+  {
+    icon: BarChart3,
+    title: "Project Scoping & Strategy",
+    problem: "Unclear requirements lead to wasted budgets and failed projects.",
+    solution: "Technical discovery sessions, architecture planning, feasibility analysis, and detailed project roadmaps — before a single line of code is written.",
+    outcome: "Clear direction, realistic timelines, confident execution.",
   },
 ];
 
