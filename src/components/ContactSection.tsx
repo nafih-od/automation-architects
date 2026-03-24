@@ -42,7 +42,7 @@ const ContactSection = () => {
             <div className="space-y-5">
               {[
                 { label: "Response time", value: "Within 24 hours" },
-                { label: "Availability", value: "International projects welcome" },
+                { label: "Availability", value: "International projects" },
                 { label: "Engagement", value: "Project-based or retainer" },
                 { label: "Minimum project", value: "Custom scoping required" },
               ].map((item) => (
