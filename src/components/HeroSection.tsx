@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
 const trustIndicators = [
-  "ERP & CRM automation systems",
+  "AI automation & ML pipelines",
   "Multi-store inventory platforms (50+ users)",
   "Shopify & API integrations",
   "MCP integrations & AI agent tooling",
@@ -11,7 +11,7 @@ const trustIndicators = [
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-background" aria-label="Hero">
       <div className="relative max-w-7xl mx-auto px-6 pt-32 pb-24 w-full">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -32,15 +32,16 @@ const HeroSection = () => {
           </motion.div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-8 tracking-tight text-foreground">
-            I Engineer AI-Powered{" "}
+            AI Systems Engineer{" "}
             <br className="hidden sm:block" />
-            Infrastructure for{" "}
-            <span className="text-gradient">Scaling Companies</span>
+            Building{" "}
+            <span className="text-gradient">ML & Automation Solutions</span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
-            Custom web platforms. AI logic integration. API-driven automation. 
-            Scalable backend systems designed to eliminate operational bottlenecks.
+            I'm Nafih Rahman — an AI Systems Engineer specializing in machine learning pipelines, 
+            AI-powered automation, and scalable backend infrastructure that eliminates 
+            operational bottlenecks for growing businesses.
           </p>
 
           <div className="grid grid-cols-2 gap-x-6 gap-y-2 mb-12 max-w-lg">
