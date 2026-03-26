@@ -1,24 +1,42 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
-  { label: "Services", href: "#services" },
-  { label: "Case Studies", href: "#cases" },
-  { label: "Projects", href: "/projects" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "#services", isRoute: false },
+  { label: "Case Studies", href: "#cases", isRoute: false },
+  { label: "Projects", href: "/projects", isRoute: true },
+  { label: "Blog", href: "/blog", isRoute: true },
+  { label: "Contact", href: "#contact", isRoute: false },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
   }, []);
+
+  const renderNavLink = (item: typeof navItems[0], onClick?: () => void) => {
+    if (item.isRoute) {
+      return (
+        <Link key={item.label} to={item.href} onClick={onClick} className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
+          {item.label}
+        </Link>
+      );
+    }
+    const href = location.pathname === "/" ? item.href : `/${item.href}`;
+    return (
+      <a key={item.label} href={href} onClick={onClick} className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
+        {item.label}
+      </a>
+    );
+  };
 
   return (
     <motion.nav
@@ -30,16 +48,12 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#" className="text-xl font-semibold tracking-tight text-foreground">
+        <Link to="/" className="text-xl font-semibold tracking-tight text-foreground">
           Nafih<span className="text-primary">.</span>
-        </a>
+        </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <a key={item.label} href={item.href} className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => renderNavLink(item))}
           <a href="/resume.pdf" download className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">Resume</a>
           <a href="#contact" className="text-sm font-medium bg-primary text-primary-foreground px-5 py-2 rounded-md hover:bg-primary/90 transition-colors">
             Book a Call
@@ -60,11 +74,7 @@ const Navbar = () => {
             className="md:hidden bg-background border-b border-border overflow-hidden"
           >
             <div className="flex flex-col px-6 py-4 gap-4">
-              {navItems.map((item) => (
-                <a key={item.label} href={item.href} onClick={() => setOpen(false)} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) => renderNavLink(item, () => setOpen(false)))}
               <a href="/resume.pdf" download onClick={() => setOpen(false)} className="text-sm text-muted-foreground hover:text-primary transition-colors">Resume</a>
               <a href="#contact" onClick={() => setOpen(false)} className="text-sm font-medium bg-primary text-primary-foreground px-5 py-2 rounded-md text-center">
                 Book a Call
