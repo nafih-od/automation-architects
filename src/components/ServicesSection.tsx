@@ -72,14 +72,15 @@ const cardVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" as const },
+    transition: { delay: i * 0.08, duration: 0.6, ease: "easeOut" as const },
   }),
 };
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-28 md:py-36 bg-secondary/50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="services" className="py-28 md:py-36 bg-background relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-secondary/20 to-background" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,20 +89,20 @@ const ServicesSection = () => {
           className="mb-20"
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-16 bg-primary" />
-            <span className="text-sm font-mono-tech text-primary tracking-widest uppercase">
+            <div className="h-px w-20 bg-gradient-to-r from-primary to-primary/40" />
+            <span className="text-xs font-mono-tech text-primary tracking-[0.2em] uppercase font-medium">
               Services
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-5 text-foreground">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-5 text-foreground">
             Systems I Engineer
           </h2>
-          <p className="text-muted-foreground max-w-xl text-base">
+          <p className="text-muted-foreground max-w-xl text-base leading-relaxed">
             Every engagement follows the same framework: understand the business problem, architect the technical solution, deliver measurable outcomes.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -110,26 +111,26 @@ const ServicesSection = () => {
               whileInView="visible"
               viewport={{ once: true }}
               variants={cardVariants}
-              className="group bg-card border border-border rounded-lg p-8 hover:shadow-md hover:border-primary/20 transition-all duration-300"
+              className="premium-card p-8"
             >
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-11 h-11 rounded-xl bg-primary/8 flex items-center justify-center">
                   <service.icon className="text-primary" size={18} />
                 </div>
-                <h3 className="text-base font-semibold text-foreground">{service.title}</h3>
+                <h3 className="text-[15px] font-bold text-foreground">{service.title}</h3>
               </div>
 
               <div className="space-y-4 text-sm">
                 <div>
-                  <span className="text-muted-foreground font-mono-tech text-[10px] uppercase tracking-widest">Problem</span>
-                  <p className="text-muted-foreground mt-1 leading-relaxed">{service.problem}</p>
+                  <span className="text-muted-foreground font-mono-tech text-[10px] uppercase tracking-[0.15em]">Problem</span>
+                  <p className="text-muted-foreground mt-1.5 leading-relaxed">{service.problem}</p>
                 </div>
                 <div>
-                  <span className="text-primary font-mono-tech text-[10px] uppercase tracking-widest">Solution</span>
-                  <p className="text-foreground/80 mt-1 leading-relaxed">{service.solution}</p>
+                  <span className="text-primary font-mono-tech text-[10px] uppercase tracking-[0.15em]">Solution</span>
+                  <p className="text-foreground/80 mt-1.5 leading-relaxed">{service.solution}</p>
                 </div>
-                <div className="pt-3 border-t border-border">
-                  <p className="text-primary font-medium text-xs tracking-wide">{service.outcome}</p>
+                <div className="pt-4 border-t border-border/60">
+                  <p className="text-primary font-semibold text-xs tracking-wide">{service.outcome}</p>
                 </div>
               </div>
             </motion.div>

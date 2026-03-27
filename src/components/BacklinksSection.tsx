@@ -10,8 +10,9 @@ const platforms = [
 
 const BacklinksSection = () => {
   return (
-    <section className="py-16 bg-secondary/30" aria-label="Find me online">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-16 bg-background relative" aria-label="Find me online">
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 to-transparent" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -19,10 +20,10 @@ const BacklinksSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-3">
             Find Me on GitHub, LinkedIn & AI Platforms
           </h2>
-          <p className="text-muted-foreground text-sm max-w-lg mx-auto">
+          <p className="text-muted-foreground text-sm max-w-lg mx-auto leading-relaxed">
             Connect with me across developer and professional platforms for AI engineering insights, collaboration, and project inquiries.
           </p>
         </motion.div>
@@ -38,10 +39,10 @@ const BacklinksSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.4 }}
-              className="flex flex-col items-center gap-2 p-5 rounded-lg border border-border bg-card hover:border-primary/30 hover:shadow-md transition-all duration-300 group"
+              className="premium-card flex flex-col items-center gap-2.5 p-6 group"
             >
-              <p.icon size={22} className="text-primary group-hover:scale-110 transition-transform" />
-              <span className="text-sm font-semibold text-foreground">{p.label}</span>
+              <p.icon size={22} className="text-primary group-hover:scale-110 transition-transform duration-300" />
+              <span className="text-sm font-bold text-foreground">{p.label}</span>
               <span className="text-[11px] text-muted-foreground text-center">{p.desc}</span>
             </motion.a>
           ))}

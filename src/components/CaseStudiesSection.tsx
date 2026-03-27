@@ -76,15 +76,15 @@ const CaseStudiesSection = () => {
           className="mb-20"
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-16 bg-primary" />
-            <span className="text-sm font-mono-tech text-primary tracking-widest uppercase">
+            <div className="h-px w-20 bg-gradient-to-r from-primary to-primary/40" />
+            <span className="text-xs font-mono-tech text-primary tracking-[0.2em] uppercase font-medium">
               Case Studies
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-5 text-foreground">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-5 text-foreground">
             Systems in Production
           </h2>
-          <p className="text-muted-foreground max-w-xl text-base">
+          <p className="text-muted-foreground max-w-xl text-base leading-relaxed">
             Architecture decisions, technical depth, and measurable business outcomes from real deployments.
           </p>
         </motion.div>
@@ -94,10 +94,10 @@ const CaseStudiesSection = () => {
             <button
               key={cs.id}
               onClick={() => setActiveCase(i)}
-              className={`text-sm px-5 py-2.5 rounded-md border transition-all duration-300 ${
+              className={`text-[13px] font-medium px-6 py-2.5 rounded-lg border transition-all duration-300 ${
                 activeCase === i
-                  ? "bg-primary text-primary-foreground border-primary shadow-sm"
-                  : "text-muted-foreground border-border hover:border-primary/40 hover:text-foreground bg-card"
+                  ? "bg-primary text-primary-foreground border-primary shadow-md"
+                  : "text-muted-foreground border-border hover:border-primary/30 hover:text-foreground bg-card"
               }`}
             >
               {cs.tag}
@@ -110,44 +110,44 @@ const CaseStudiesSection = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="bg-card border border-border rounded-xl overflow-hidden shadow-sm"
+          className="premium-card overflow-hidden"
         >
-          <div className="p-8 md:p-10 border-b border-border">
+          <div className="p-8 md:p-12 border-b border-border/60 bg-gradient-to-r from-primary/[0.03] to-transparent">
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-xs font-mono-tech text-primary tracking-widest uppercase">{active.tag}</span>
+              <span className="text-xs font-mono-tech text-primary tracking-[0.15em] uppercase font-medium">{active.tag}</span>
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground">{active.title}</h3>
+            <h3 className="text-2xl md:text-3xl font-extrabold text-foreground">{active.title}</h3>
           </div>
 
-          <div className="p-8 md:p-10">
-            <div className="grid md:grid-cols-2 gap-10 mb-10">
+          <div className="p-8 md:p-12">
+            <div className="grid md:grid-cols-2 gap-12 mb-12">
               <div>
-                <h4 className="text-xs font-mono-tech text-muted-foreground tracking-widest uppercase mb-3">
+                <h4 className="text-xs font-mono-tech text-muted-foreground tracking-[0.15em] uppercase mb-3 font-medium">
                   Business Challenge
                 </h4>
-                <p className="text-muted-foreground text-sm leading-relaxed">{active.challenge}</p>
+                <p className="text-muted-foreground text-sm leading-[1.8]">{active.challenge}</p>
               </div>
               <div>
-                <h4 className="text-xs font-mono-tech text-muted-foreground tracking-widest uppercase mb-3">
+                <h4 className="text-xs font-mono-tech text-muted-foreground tracking-[0.15em] uppercase mb-3 font-medium">
                   System Architecture
                 </h4>
-                <p className="text-foreground/80 text-sm leading-relaxed">{active.architecture}</p>
+                <p className="text-foreground/80 text-sm leading-[1.8]">{active.architecture}</p>
               </div>
             </div>
 
-            <div className="mb-10 p-5 rounded-lg bg-secondary border border-border">
-              <h4 className="text-xs font-mono-tech text-muted-foreground tracking-widest uppercase mb-3">
+            <div className="mb-12 p-6 rounded-xl bg-secondary/60 border border-border/60">
+              <h4 className="text-xs font-mono-tech text-muted-foreground tracking-[0.15em] uppercase mb-3 font-medium">
                 Data Flow
               </h4>
               <p className="text-xs font-mono-tech text-primary leading-loose">{active.dataFlow}</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-10">
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div>
-                <h4 className="text-xs font-mono-tech text-muted-foreground tracking-widest uppercase mb-3">Stack</h4>
+                <h4 className="text-xs font-mono-tech text-muted-foreground tracking-[0.15em] uppercase mb-4 font-medium">Stack</h4>
                 <div className="flex flex-wrap gap-2">
                   {active.stack.map((s) => (
-                    <span key={s} className="text-xs border border-border text-foreground px-3 py-1.5 rounded-md bg-secondary">
+                    <span key={s} className="text-xs font-medium border border-border text-foreground px-3.5 py-1.5 rounded-lg bg-secondary/60">
                       {s}
                     </span>
                   ))}
@@ -155,15 +155,15 @@ const CaseStudiesSection = () => {
               </div>
             </div>
 
-            <div className="border-t border-border pt-8">
-              <h4 className="text-xs font-mono-tech text-muted-foreground tracking-widest uppercase mb-5">
+            <div className="border-t border-border/60 pt-10">
+              <h4 className="text-xs font-mono-tech text-muted-foreground tracking-[0.15em] uppercase mb-6 font-medium">
                 Measurable Impact
               </h4>
               <div className="grid sm:grid-cols-3 gap-4">
                 {active.impact.map((item, i) => (
-                  <div key={i} className="flex items-start gap-3 p-4 rounded-lg bg-primary/5 border border-primary/10">
+                  <div key={i} className="flex items-start gap-3 p-5 rounded-xl bg-primary/[0.04] border border-primary/10">
                     <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
-                    <span className="text-sm text-foreground font-medium">{item}</span>
+                    <span className="text-sm text-foreground font-semibold">{item}</span>
                   </div>
                 ))}
               </div>
@@ -175,11 +175,11 @@ const CaseStudiesSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 text-center"
+          className="mt-14 text-center"
         >
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 text-sm text-primary hover:underline underline-offset-4 transition-all"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-4 transition-all"
           >
             Discuss a similar system
             <ArrowRight size={14} />

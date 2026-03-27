@@ -11,8 +11,9 @@ const categories = [
 
 const TechStackSection = () => {
   return (
-    <section id="stack" className="py-28 md:py-36 bg-secondary/50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="stack" className="py-28 md:py-36 bg-background relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-secondary/20 to-background" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -21,13 +22,13 @@ const TechStackSection = () => {
           className="mb-20"
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-16 bg-primary" />
-            <span className="text-sm font-mono-tech text-primary tracking-widest uppercase">
+            <div className="h-px w-20 bg-gradient-to-r from-primary to-primary/40" />
+            <span className="text-xs font-mono-tech text-primary tracking-[0.2em] uppercase font-medium">
               Tech Stack
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-5 text-foreground">Engineering Toolkit</h2>
-          <p className="text-muted-foreground max-w-xl text-base">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-5 text-foreground">Engineering Toolkit</h2>
+          <p className="text-muted-foreground max-w-xl text-base leading-relaxed">
             Not a tool list — system engineering capabilities across the full stack.
           </p>
         </motion.div>
@@ -40,14 +41,14 @@ const TechStackSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="bg-card border border-border rounded-lg p-6"
+              className="premium-card p-6"
             >
-              <h3 className="text-xs font-mono-tech text-primary tracking-widest uppercase mb-1">{cat.label}</h3>
+              <h3 className="text-xs font-mono-tech text-primary tracking-[0.15em] uppercase mb-1 font-medium">{cat.label}</h3>
               <p className="text-[11px] text-muted-foreground mb-5">{cat.capability}</p>
               <ul className="space-y-3">
                 {cat.items.map((item) => (
                   <li key={item} className="text-sm text-foreground/80 flex items-center gap-2.5">
-                    <div className="w-1 h-1 rounded-full bg-primary shrink-0" />
+                    <div className="w-1 h-1 rounded-full bg-primary/60 shrink-0" />
                     {item}
                   </li>
                 ))}
