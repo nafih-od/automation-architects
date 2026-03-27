@@ -18,8 +18,9 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-28 md:py-36 bg-secondary/50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="contact" className="py-28 md:py-36 bg-background relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-secondary/20 to-background" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -28,10 +29,10 @@ const ContactSection = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="h-px w-16 bg-primary" />
-              <span className="text-sm font-mono-tech text-primary tracking-widest uppercase">Contact</span>
+              <div className="h-px w-20 bg-gradient-to-r from-primary to-primary/40" />
+              <span className="text-xs font-mono-tech text-primary tracking-[0.2em] uppercase font-medium">Contact</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-foreground">
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-foreground">
               Let's Discuss{" "}
               <span className="text-gradient">Your System</span>
             </h2>
@@ -47,14 +48,14 @@ const ContactSection = () => {
                 { label: "Minimum project", value: "Custom scoping required" },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-3 text-sm">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary/70 shrink-0" />
                   <span className="text-muted-foreground">{item.label}:</span>
-                  <span className="text-foreground font-medium">{item.value}</span>
+                  <span className="text-foreground font-semibold">{item.value}</span>
                 </div>
               ))}
             </div>
 
-            <div className="flex items-center gap-4 mt-8">
+            <div className="flex items-center gap-3 mt-10">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}
@@ -62,7 +63,7 @@ const ContactSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className="w-10 h-10 rounded-md border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/60 transition-colors"
+                  className="w-11 h-11 rounded-xl border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 hover:shadow-sm transition-all duration-300"
                 >
                   <link.icon size={18} />
                 </a>
@@ -80,49 +81,49 @@ const ContactSection = () => {
           >
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="text-[10px] font-mono-tech text-muted-foreground tracking-widest uppercase mb-2 block">Name</label>
+                <label className="text-[10px] font-mono-tech text-muted-foreground tracking-[0.15em] uppercase mb-2 block font-medium">Name</label>
                 <input
                   type="text" required maxLength={100}
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full bg-card border border-border rounded-md px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/60 transition-colors"
+                  className="w-full bg-card border border-border rounded-lg px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all duration-300"
                   placeholder="Your name"
                 />
               </div>
               <div>
-                <label className="text-[10px] font-mono-tech text-muted-foreground tracking-widest uppercase mb-2 block">Company</label>
+                <label className="text-[10px] font-mono-tech text-muted-foreground tracking-[0.15em] uppercase mb-2 block font-medium">Company</label>
                 <input
                   type="text" maxLength={100}
                   value={form.company}
                   onChange={(e) => setForm({ ...form, company: e.target.value })}
-                  className="w-full bg-card border border-border rounded-md px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/60 transition-colors"
+                  className="w-full bg-card border border-border rounded-lg px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all duration-300"
                   placeholder="Company name"
                 />
               </div>
             </div>
             <div>
-              <label className="text-[10px] font-mono-tech text-muted-foreground tracking-widest uppercase mb-2 block">Email</label>
+              <label className="text-[10px] font-mono-tech text-muted-foreground tracking-[0.15em] uppercase mb-2 block font-medium">Email</label>
               <input
                 type="email" required maxLength={255}
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full bg-card border border-border rounded-md px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/60 transition-colors"
+                className="w-full bg-card border border-border rounded-lg px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all duration-300"
                 placeholder="you@company.com"
               />
             </div>
             <div>
-              <label className="text-[10px] font-mono-tech text-muted-foreground tracking-widest uppercase mb-2 block">Project Details</label>
+              <label className="text-[10px] font-mono-tech text-muted-foreground tracking-[0.15em] uppercase mb-2 block font-medium">Project Details</label>
               <textarea
                 required maxLength={1000} rows={5}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full bg-card border border-border rounded-md px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/60 transition-colors resize-none"
+                className="w-full bg-card border border-border rounded-lg px-4 py-3.5 text-sm text-foreground focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all duration-300 resize-none"
                 placeholder="Describe your business challenge, current systems, and what you're looking to build..."
               />
             </div>
             <button
               type="submit"
-              className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-md font-medium text-sm hover:bg-primary/90 transition-colors shadow-md"
+              className="w-full inline-flex items-center justify-center gap-2.5 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-all duration-300 shadow-md hover:shadow-lg"
             >
               Book a Strategy Call
               <ArrowRight size={16} />

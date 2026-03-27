@@ -22,11 +22,11 @@ const ProcessSection = () => {
           className="mb-20"
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-16 bg-primary" />
-            <span className="text-sm font-mono-tech text-primary tracking-widest uppercase">Process</span>
+            <div className="h-px w-20 bg-gradient-to-r from-primary to-primary/40" />
+            <span className="text-xs font-mono-tech text-primary tracking-[0.2em] uppercase font-medium">Process</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-5 text-foreground">How I Work</h2>
-          <p className="text-muted-foreground max-w-xl text-base">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-5 text-foreground">How I Work</h2>
+          <p className="text-muted-foreground max-w-xl text-base leading-relaxed">
             A structured, repeatable engineering process that turns business requirements into production-grade systems.
           </p>
         </motion.div>
@@ -39,10 +39,10 @@ const ProcessSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06, duration: 0.5 }}
-              className="bg-card border border-border rounded-lg p-5 flex flex-col"
+              className="premium-card p-5 flex flex-col"
             >
-              <span className="text-2xl font-bold text-primary/30 mb-3 font-mono-tech">{step.num}</span>
-              <h3 className="text-sm font-semibold mb-2 leading-tight text-foreground">{step.title}</h3>
+              <span className="text-2xl font-extrabold text-primary/20 mb-3 font-mono-tech">{step.num}</span>
+              <h3 className="text-sm font-bold mb-2 leading-tight text-foreground">{step.title}</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
             </motion.div>
           ))}

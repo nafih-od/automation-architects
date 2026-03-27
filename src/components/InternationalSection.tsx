@@ -11,12 +11,10 @@ const features = [
 const InternationalSection = () => {
   return (
     <section className="py-24 md:py-32 relative overflow-hidden">
-      {/* Subtle background accent */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-5 gap-16 items-start">
-          {/* Left side - Heading & description */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -25,10 +23,10 @@ const InternationalSection = () => {
             className="lg:col-span-2"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="h-px w-12 bg-primary" />
-              <span className="text-sm font-mono-tech text-primary tracking-wider uppercase">Global Reach</span>
+              <div className="h-px w-16 bg-gradient-to-r from-primary to-primary/40" />
+              <span className="text-xs font-mono-tech text-primary tracking-[0.2em] uppercase font-medium">Global Reach</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-5 text-foreground leading-tight">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-5 text-foreground leading-tight">
               Built for
               <span className="text-primary"> International</span> Teams
             </h2>
@@ -36,15 +34,13 @@ const InternationalSection = () => {
               Professional workflows and clear communication — delivering quality results regardless of geography.
             </p>
 
-            {/* Location badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-border bg-card/80">
+            <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl border border-border bg-card shadow-sm">
               <MapPin size={14} className="text-primary" />
-              <span className="text-xs font-medium text-foreground">Based in India</span>
+              <span className="text-xs font-semibold text-foreground">Based in India</span>
               <span className="text-xs text-muted-foreground">· Serving clients worldwide</span>
             </div>
           </motion.div>
 
-          {/* Right side - Feature cards */}
           <div className="lg:col-span-3 grid sm:grid-cols-2 gap-4">
             {features.map((f, i) => (
               <motion.div
@@ -53,12 +49,12 @@ const InternationalSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="group bg-card/60 backdrop-blur-sm border border-border rounded-xl p-6 hover:border-primary/30 hover:shadow-md transition-all duration-300"
+                className="premium-card p-6"
               >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
+                <div className="w-11 h-11 rounded-xl bg-primary/8 flex items-center justify-center mb-4">
                   <f.icon className="text-primary" size={18} />
                 </div>
-                <h3 className="text-sm font-semibold mb-2 text-foreground">{f.title}</h3>
+                <h3 className="text-sm font-bold mb-2 text-foreground">{f.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">{f.desc}</p>
               </motion.div>
             ))}
